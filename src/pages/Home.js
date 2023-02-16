@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ProjectDetails from "../components/ProjectDetails";
 
 const Home = () => {
   const [projects, setProjects] = useState([]);
@@ -32,7 +33,9 @@ const Home = () => {
         </h2>
         <div className="projects-wrapper flex gap-10 flex-wrap">
           {projects &&
-            projects.map((project) => <p key={project._id}>{project.title}</p>)}
+            projects.map((project) => (
+              <ProjectDetails key={project._id} project={project} />
+            ))}
         </div>
       </div>
       <div className="home-right"></div>
