@@ -22,7 +22,12 @@ export const projectsReducer = (state, action) => {
       return {};
 
     case "DELETE_PROJECT":
-      return {};
+      return {
+        ...state,
+        projects: state.projects.filter(
+          (project) => project._id !== action.payload._id
+        ),
+      };
 
     default:
       return state;
