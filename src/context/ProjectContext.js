@@ -19,7 +19,19 @@ export const projectsReducer = (state, action) => {
       };
 
     case "UPDATE_PROJECT":
-      return {};
+      const [existingProject] = state.projects.filter(
+        (project) => project._id === action.payload._id
+      );
+
+      return {
+        ...state,
+        projects: [
+          action.payload,
+          ...state.projects.filter(
+            (project) => project.id !== existingProject._id
+          ),
+        ],
+      };
 
     case "DELETE_PROJECT":
       return {
