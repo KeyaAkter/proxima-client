@@ -28,7 +28,7 @@ export const projectsReducer = (state, action) => {
         projects: [
           action.payload,
           ...state.projects.filter(
-            (project) => project.id !== existingProject._id
+            (project) => project._id !== existingProject._id
           ),
         ],
       };
