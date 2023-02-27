@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
@@ -38,5 +37,5 @@ export const useLogin = () => {
     }
   };
 
-  return { login, loading, error };
+  return { login, error, loading };
 };

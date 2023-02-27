@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
@@ -38,5 +37,5 @@ export const useSignup = () => {
     }
   };
 
-  return { signup, loading, error };
+  return { signup, error, loading };
 };
