@@ -11,11 +11,14 @@ const Home = () => {
 
   useEffect(() => {
     const getAllProjects = async () => {
-      const res = await fetch("http://localhost:5000/api/projects", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/api/projects`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       const json = await res.json();
 
