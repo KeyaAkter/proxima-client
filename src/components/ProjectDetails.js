@@ -21,7 +21,9 @@ const ProjectDetails = ({ project }) => {
       `${process.env.REACT_APP_BASE_URL}/api/projects/${project._id}`,
       {
         method: "DELETE",
-        Authorization: `Bearer ${user.token}`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       }
     );
 
