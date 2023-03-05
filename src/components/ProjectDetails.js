@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import { useProjectsContext } from "../hooks/useProjectsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -117,4 +117,4 @@ const ProjectDetails = ({ project }) => {
   );
 };
 
-export default ProjectDetails;
+export default React.memo(ProjectDetails);

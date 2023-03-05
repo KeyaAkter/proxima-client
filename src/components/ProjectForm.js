@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useProjectsContext } from "../hooks/useProjectsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
@@ -67,7 +67,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
 
     // if there is a project, send patch req
     if (project) {
-      // send patch req
+      // sending patch req
       const res = await fetch(
         `${process.env.REACT_APP_BASE_URL}/api/projects/${project._id}`,
         {
@@ -82,13 +82,11 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
 
       const json = await res.json();
 
-      // !res.ok
       if (!res.ok) {
         setError(json.error);
         setEmptyFields(json.emptyFields);
       }
 
-      // res.ok
       if (res.ok) {
         setError(null);
         setEmptyFields([]);
@@ -96,7 +94,7 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
         // dispatch
         dispatch({ type: "UPDATE_PROJECT", payload: json });
 
-        // close overlay & modal
+        // closing overlay & modal
         setIsModalOpen(false);
         setIsOverlayOpen(false);
       }
@@ -255,4 +253,4 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
   );
 };
 
-export default ProjectForm;
+export default React.memo(ProjectForm);
